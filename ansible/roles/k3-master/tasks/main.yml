@@ -1,0 +1,17 @@
+---
+# tasks file for k3-master
+- name: update system
+  yum:
+   name: "*"
+   state: latest
+
+- name: install k3 master
+  shell: curl -sfL https://get.k3s.io | sh -
+
+- name: Get node token
+  command: cat /var/lib/rancher/k3s/server/node-token
+  register: k3s_token
+
+- name: Save token as fact
+  set_fact:
+    node_token: "{{ k3s_token.stdout }}"

@@ -1,0 +1,31 @@
+---
+- name: install helm chart
+  become: true
+  hosts: master-node
+  tasks:
+    - name: install helm tar
+      ansible.builtin.unarchive:
+        src: https://get.helm.sh/helm-v4.1.0-rc.1-linux-amd64.tar.gz
+        dest: /tmp/
+        remote_src: yes
+
+    - name: move helm to right dest
+      copy:
+        src: /tmp/linux-amd64/helm
+        dest:  /usr/local/bin/helm
+        mode: '0755'
+        remote_src: yes
+
+    - name: copy helm chart
+      copy:
+        src: /home/devops-cloud-project/helm/my-nginx-chart
+        dest: /home/helm
+      tags: copy-helm
+
+    - name: install my chart
+      shell: |
+        helm upgrade --install myapp /home/helm/my-nginx-chart \
+        --kubeconfig=/etc/rancher/k3s/k3s.yaml \
+        --namespace myapp \
+        --create-namespace
+      tags: install-helm
