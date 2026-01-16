@@ -17,9 +17,7 @@ End-to-end automated infrastructure deployment with CI/CD pipeline - from bare m
 
 ---
 
-## 🚀 The Pipeline
-```
-Push Code → Build Docker Image → Security Scan → Deploy to K3s → Health Check
+
 ```
 
 ---
