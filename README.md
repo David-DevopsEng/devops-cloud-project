@@ -10,7 +10,7 @@ End-to-end automated infrastructure deployment with CI/CD pipeline - from bare m
 
 | Category | Technologies |
 |----------|-------------|
-| **Infrastructure** | Terraform, Ansible |
+| **Infrastructure** | Terraform, Ansible, python |
 | **Containers** | Docker, Kubernetes (K3s), Helm |
 | **CI/CD** | GitHub Actions, Trivy Security Scanning |
 | **Monitoring** | Grafana |
@@ -64,6 +64,7 @@ End-to-end automated infrastructure deployment with CI/CD pipeline - from bare m
 ## 🎓 Skills Demonstrated
 
 - Infrastructure as Code (IaC)
+- python scripting
 - Container Orchestration
 - CI/CD Automation
 - Security Scanning & Best Practices
